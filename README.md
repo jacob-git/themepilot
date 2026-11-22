@@ -7,9 +7,10 @@
 ## Included Themes
 
 ### IntelliJ IDEA Collection
-- **ThemePilot: IDEA Dark (New UI)**: Modern IntelliJ IDEA New UI dark palette (`#1E1F22` editor, `#2B2D30` sidebar, warm orange keywords, sky blue methods, soft green strings, purple fields, olive annotations).
+- **ThemePilot: IDEA Dark (New UI)**: Modern IntelliJ IDEA New UI dark palette (`#1E1F22` editor, `#2B2D30` sidebar, bottom blue active tab bar, warm orange keywords, sky blue method declarations, soft green strings, italic purple static fields, olive annotations).
 - **ThemePilot: IDEA Darcula (Classic)**: Classic IntelliJ Darcula palette (`#2B2B2B` editor, `#3C3F41` sidebar, amber methods, burnt orange keywords).
 - **ThemePilot: IDEA Light**: Crisp IntelliJ Light palette (`#FFFFFF` editor, `#F7F8FA` sidebar, deep navy keywords, forest green strings).
+- **ThemePilot: IDEA Icons**: Minimalist IntelliJ New UI file & folder icon theme (blue source roots, green test roots, purple config/resources, muted build dirs, and crisp language badges).
 
 All themes enable **semantic highlighting** and are tuned for Java (Spring Boot), TypeScript, JavaScript, Python, Go, Rust, JSON, YAML, HTML, CSS, and Markdown.
 

@@ -106,9 +106,15 @@ async function applyFontAndOptionalLook(extensionPath, fullLook) {
   );
 
   if (fullLook) {
+    const windowCfg = vscode.workspace.getConfiguration('window');
     await workbenchCfg.update(
       'colorTheme',
       'ThemePilot: IDEA Dark (New UI)',
+      vscode.ConfigurationTarget.Global
+    );
+    await workbenchCfg.update(
+      'iconTheme',
+      'themepilot-idea-icons',
       vscode.ConfigurationTarget.Global
     );
     await editorCfg.update('minimap.enabled', false, vscode.ConfigurationTarget.Global);
@@ -120,12 +126,13 @@ async function applyFontAndOptionalLook(extensionPath, fullLook) {
     await editorCfg.update('stickyScroll.enabled', true, vscode.ConfigurationTarget.Global);
     await editorCfg.update('renderLineHighlight', 'all', vscode.ConfigurationTarget.Global);
     await workbenchCfg.update('tree.indent', 14, vscode.ConfigurationTarget.Global);
+    await windowCfg.update('commandCenter', true, vscode.ConfigurationTarget.Global);
   }
 
   if (hasJetBrainsMonoInstalled()) {
     void vscode.window.showInformationMessage(
       fullLook
-        ? 'Applied Full IntelliJ New UI Look & Feel (theme, JetBrains Mono, no minimap, no rainbow brackets, sticky scroll).'
+        ? 'Applied Full IntelliJ New UI Look & Feel (theme, IDEA icons, JetBrains Mono, no minimap, no rainbow brackets, sticky scroll). Quit and reopen VS Code once if JetBrains Mono was newly installed.'
         : 'ThemePilot applied JetBrains Mono font, ligatures, and IntelliJ line height.'
     );
     return;
@@ -179,6 +186,7 @@ function activate(context) {
       await editorCfg.update('stickyScroll.enabled', undefined, vscode.ConfigurationTarget.Global);
       await editorCfg.update('renderLineHighlight', undefined, vscode.ConfigurationTarget.Global);
       await termCfg.update('fontFamily', undefined, vscode.ConfigurationTarget.Global);
+      await workbenchCfg.update('iconTheme', undefined, vscode.ConfigurationTarget.Global);
       await workbenchCfg.update('tree.indent', undefined, vscode.ConfigurationTarget.Global);
       void vscode.window.showInformationMessage('ThemePilot reset IntelliJ look & feel settings to defaults.');
     }),

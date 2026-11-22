@@ -61,6 +61,13 @@
         "path": "./themes/idea-light.json"
       }
     ],
+    "iconThemes": [
+      {
+        "id": "themepilot-idea-icons",
+        "label": "ThemePilot: IDEA Icons",
+        "path": "./icons/idea-icons.json"
+      }
+    ],
     "commands": [
       {
         "command": "themepilot.applyFullIdeaLook",
