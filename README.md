@@ -16,9 +16,10 @@ All themes enable **semantic highlighting** and are tuned for Java (Spring Boot)
 ## 1-Click Typography & Theme Commands
 
 Open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`):
+- **`ThemePilot: Apply Full IntelliJ New UI Look & Feel`**: 1-click setup that activates `IDEA Dark (New UI)`, installs/applies bundled **JetBrains Mono** (`13px`, ligatures, `1.5` line height), disables VS Code's minimap and rainbow brackets, enables Sticky Scroll and full-line gutter highlight, and tightens tree indent.
 - **`ThemePilot: Switch Theme`**: Quickly switch between installed ThemePilot color themes.
-- **`ThemePilot: Apply IntelliJ Font & Ligatures (JetBrains Mono)`**: Installs the bundled offline **JetBrains Mono** font (Regular, Italic, Bold, Bold Italic, licensed under SIL OFL 1.1) automatically on macOS/Linux (or opens the bundled `fonts/` folder on Windows) and enables ligatures + `1.55` line height in both the editor and integrated terminal.
-- **`ThemePilot: Reset Editor Font Settings`**: Reverts font overrides back to VS Code defaults.
+- **`ThemePilot: Apply IntelliJ Font & Ligatures (JetBrains Mono)`**: Installs the bundled offline **JetBrains Mono** font (Regular, Italic, Bold, Bold Italic, licensed under SIL OFL 1.1) and applies ligatures + line height without changing your other editor settings.
+- **`ThemePilot: Reset IntelliJ Look & Feel Settings`**: Reverts all ThemePilot editor overrides back to VS Code defaults.
 
 ## Also by Pallattu
 - **[ArchPilot](https://marketplace.visualstudio.com/items?itemName=Pallattu.archpilot-studio)**: Offline architecture, security, QA, upgrade planning, and AI token-cost guardrails for VS Code, Cursor, and Windsurf.

@@ -38,6 +38,7 @@
   ],
   "main": "./src/extension.js",
   "activationEvents": [
+    "onCommand:themepilot.applyFullIdeaLook",
     "onCommand:themepilot.applyIdeaFont",
     "onCommand:themepilot.resetFont",
     "onCommand:themepilot.switchTheme"
@@ -62,13 +63,18 @@
     ],
     "commands": [
       {
+        "command": "themepilot.applyFullIdeaLook",
+        "title": "Apply Full IntelliJ New UI Look & Feel",
+        "category": "ThemePilot"
+      },
+      {
         "command": "themepilot.applyIdeaFont",
         "title": "Apply IntelliJ Font & Ligatures (JetBrains Mono)",
         "category": "ThemePilot"
       },
       {
         "command": "themepilot.resetFont",
-        "title": "Reset Editor Font Settings",
+        "title": "Reset IntelliJ Look & Feel Settings",
         "category": "ThemePilot"
       },
       {
