@@ -1,0 +1,84 @@
+{
+  "name": "themepilot",
+  "displayName": "ThemePilot",
+  "description": "Curated IDE-inspired color themes and typography presets for VS Code, Cursor, and Windsurf (starting with IntelliJ IDEA Dark New UI, Classic Darcula, and Light)",
+  "version": "0.1.0",
+  "publisher": "Pallattu",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1E1F22",
+    "theme": "dark"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacob-git/themepilot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jacob-git/themepilot/issues"
+  },
+  "homepage": "https://github.com/jacob-git/themepilot#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "color-theme",
+    "intellij",
+    "idea",
+    "darcula",
+    "jetbrains",
+    "jetbrains mono",
+    "dark",
+    "light",
+    "new ui"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onCommand:themepilot.applyIdeaFont",
+    "onCommand:themepilot.resetFont",
+    "onCommand:themepilot.switchTheme"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "ThemePilot: IDEA Dark (New UI)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/idea-dark-new-ui.json"
+      },
+      {
+        "label": "ThemePilot: IDEA Darcula (Classic)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/idea-darcula.json"
+      },
+      {
+        "label": "ThemePilot: IDEA Light",
+        "uiTheme": "vs",
+        "path": "./themes/idea-light.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "themepilot.applyIdeaFont",
+        "title": "Apply IntelliJ Font & Ligatures (JetBrains Mono)",
+        "category": "ThemePilot"
+      },
+      {
+        "command": "themepilot.resetFont",
+        "title": "Reset Editor Font Settings",
+        "category": "ThemePilot"
+      },
+      {
+        "command": "themepilot.switchTheme",
+        "title": "Switch Theme",
+        "category": "ThemePilot"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "npx --yes @vscode/vsce package --no-dependencies"
+  }
+}
