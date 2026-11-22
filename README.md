@@ -17,7 +17,7 @@ All themes enable **semantic highlighting** and are tuned for Java (Spring Boot)
 
 Open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`):
 - **`ThemePilot: Switch Theme`**: Quickly switch between installed ThemePilot color themes.
-- **`ThemePilot: Apply IntelliJ Font & Ligatures (JetBrains Mono)`**: Configures `JetBrains Mono` with ligatures and IntelliJ line height (`1.55`) in the editor and integrated terminal (and detects if JetBrains Mono needs to be installed via Homebrew or JetBrains).
+- **`ThemePilot: Apply IntelliJ Font & Ligatures (JetBrains Mono)`**: Installs the bundled offline **JetBrains Mono** font (Regular, Italic, Bold, Bold Italic, licensed under SIL OFL 1.1) automatically on macOS/Linux (or opens the bundled `fonts/` folder on Windows) and enables ligatures + `1.55` line height in both the editor and integrated terminal.
 - **`ThemePilot: Reset Editor Font Settings`**: Reverts font overrides back to VS Code defaults.
 
 ## Also by Pallattu

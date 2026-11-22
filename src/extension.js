@@ -2,6 +2,7 @@ const vscode = require('vscode');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
+const { execFile } = require('node:child_process');
 
 const THEME_LABELS = [
   {
@@ -48,6 +49,43 @@ function hasJetBrainsMonoInstalled() {
   return false;
 }
 
+function installBundledFonts(extensionPath) {
+  const bundledDir = path.join(extensionPath, 'fonts');
+  let ttfFiles = [];
+  try {
+    ttfFiles = fs.readdirSync(bundledDir).filter((f) => f.toLowerCase().endsWith('.ttf'));
+  } catch {
+    return { installed: false, count: 0, bundledDir };
+  }
+  if (ttfFiles.length === 0) return { installed: false, count: 0, bundledDir };
+
+  if (process.platform === 'darwin' || process.platform === 'linux') {
+    const targetDir =
+      process.platform === 'darwin'
+        ? path.join(os.homedir(), 'Library', 'Fonts')
+        : path.join(os.homedir(), '.local', 'share', 'fonts');
+    try {
+      fs.mkdirSync(targetDir, { recursive: true });
+      let copied = 0;
+      for (const file of ttfFiles) {
+        const dest = path.join(targetDir, file);
+        if (!fs.existsSync(dest)) {
+          fs.copyFileSync(path.join(bundledDir, file), dest);
+          copied += 1;
+        }
+      }
+      if (process.platform === 'linux') {
+        execFile('fc-cache', ['-f', targetDir], () => {});
+      }
+      return { installed: true, count: copied, bundledDir, targetDir };
+    } catch {
+      return { installed: false, count: 0, bundledDir };
+    }
+  }
+
+  return { installed: false, count: 0, bundledDir };
+}
+
 function activate(context) {
   context.subscriptions.push(
     vscode.commands.registerCommand('themepilot.applyIdeaFont', async () => {
@@ -74,24 +112,24 @@ function activate(context) {
         return;
       }
 
-      const actions =
-        process.platform === 'darwin'
-          ? ['Install via Homebrew', 'Download JetBrains Mono']
-          : ['Download JetBrains Mono'];
-
-      const picked = await vscode.window.showInformationMessage(
-        'Applied JetBrains Mono settings, but JetBrains Mono was not detected on your system yet.',
-        ...actions
-      );
-
-      if (picked === 'Install via Homebrew') {
-        const term = vscode.window.createTerminal('ThemePilot: Install JetBrains Mono');
-        term.show();
-        term.sendText('brew install --cask font-jetbrains-mono');
-      } else if (picked === 'Download JetBrains Mono') {
-        await vscode.env.openExternal(
-          vscode.Uri.parse('https://www.jetbrains.com/lp/mono/')
+      const result = installBundledFonts(context.extensionPath);
+      if (result.installed) {
+        const choice = await vscode.window.showInformationMessage(
+          `Installed bundled JetBrains Mono (${result.count} font files) into ${result.targetDir}. Reload VS Code to activate the new font.`,
+          'Reload Window'
         );
+        if (choice === 'Reload Window') {
+          await vscode.commands.executeCommand('workbench.action.reloadWindow');
+        }
+        return;
+      }
+
+      const choice = await vscode.window.showInformationMessage(
+        'Applied JetBrains Mono settings. Open the bundled fonts folder to install the included .ttf files offline?',
+        'Open Fonts Folder'
+      );
+      if (choice === 'Open Fonts Folder') {
+        await vscode.env.openExternal(vscode.Uri.file(result.bundledDir));
       }
     }),
 
