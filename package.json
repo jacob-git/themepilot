@@ -1,8 +1,8 @@
 {
   "name": "themepilot",
   "displayName": "ThemePilot",
-  "description": "Curated IDE-inspired color themes and typography presets for VS Code, Cursor, and Windsurf (starting with IntelliJ IDEA Dark New UI, Classic Darcula, and Light)",
-  "version": "0.1.0",
+  "description": "Curated IDE-inspired color themes, file icons, and bundled JetBrains Mono typography presets for VS Code, Cursor, and Windsurf (IntelliJ IDEA + Xcode Dark & Light)",
+  "version": "0.2.0",
   "publisher": "Pallattu",
   "icon": "media/icon.png",
   "galleryBanner": {
@@ -34,7 +34,9 @@
     "jetbrains mono",
     "dark",
     "light",
-    "new ui"
+    "new ui",
+    "xcode",
+    "swift"
   ],
   "main": "./src/extension.js",
   "activationEvents": [
@@ -59,6 +61,16 @@
         "label": "ThemePilot: IDEA Light",
         "uiTheme": "vs",
         "path": "./themes/idea-light.json"
+      },
+      {
+        "label": "ThemePilot: Xcode Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/xcode-dark.json"
+      },
+      {
+        "label": "ThemePilot: Xcode Light",
+        "uiTheme": "vs",
+        "path": "./themes/xcode-light.json"
       }
     ],
     "iconThemes": [

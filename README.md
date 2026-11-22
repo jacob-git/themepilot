@@ -12,6 +12,10 @@
 - **ThemePilot: IDEA Light**: Crisp IntelliJ Light palette (`#FFFFFF` editor, `#F7F8FA` sidebar, deep navy keywords, forest green strings).
 - **ThemePilot: IDEA Icons**: Minimalist IntelliJ New UI file & folder icon theme (blue source roots, green test roots, purple config/resources, muted build dirs, and crisp language badges).
 
+### Apple Xcode Collection
+- **ThemePilot: Xcode Dark**: Authentic Xcode Dark palette (`#1F1F24` editor, `#292A30` sidebar, magenta keywords, coral strings, cyan types, teal functions, purple properties).
+- **ThemePilot: Xcode Light**: Crisp Xcode Light palette (`#FFFFFF` editor, `#F4F5F7` sidebar, classic magenta keywords, crimson strings, navy types).
+
 All themes enable **semantic highlighting** and are tuned for Java (Spring Boot), TypeScript, JavaScript, Python, Go, Rust, JSON, YAML, HTML, CSS, and Markdown.
 
 ## 1-Click Typography & Theme Commands

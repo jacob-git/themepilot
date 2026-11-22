@@ -17,6 +17,14 @@ const THEME_LABELS = [
     label: 'ThemePilot: IDEA Light',
     description: 'Crisp IntelliJ Light palette (#FFFFFF)',
   },
+  {
+    label: 'ThemePilot: Xcode Dark',
+    description: 'Apple Xcode Dark palette (#1F1F24) with magenta keywords and coral strings',
+  },
+  {
+    label: 'ThemePilot: Xcode Light',
+    description: 'Apple Xcode Light palette (#FFFFFF) with classic magenta and crimson syntax',
+  },
 ];
 
 function hasJetBrainsMonoInstalled() {
